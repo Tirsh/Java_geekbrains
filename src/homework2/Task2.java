@@ -16,7 +16,7 @@ public class Task2 {
     }
     public static int[] bubbleSort(int[] array) throws IOException {
         Logger logger = Logger.getLogger(Task2.class.getName());
-        FileHandler fh = new FileHandler("log.txt");
+        FileHandler fh = new FileHandler("./src/homework2/log.txt");
         logger.addHandler(fh);
         SimpleFormatter sFormat = new SimpleFormatter();
         fh.setFormatter(sFormat);

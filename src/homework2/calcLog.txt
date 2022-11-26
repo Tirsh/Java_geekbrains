@@ -1,0 +1,2 @@
+Nov 26, 2022 6:39:58 PM homework2.SimpleCalc calculate
+INFO: Action 4, with .24.000000, .29.000000
