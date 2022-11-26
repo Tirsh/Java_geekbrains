@@ -12,7 +12,6 @@ public class Task2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
     public static int[] bubbleSort(int[] array) throws IOException {
         Logger logger = Logger.getLogger(Task2.class.getName());

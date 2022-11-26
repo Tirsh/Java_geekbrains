@@ -18,7 +18,7 @@ public class Task3 {
             data = getStringFromFile(fileName);
         }catch (IOException e){
             e.printStackTrace();
-            System.out.println(String.format("%s not found", fileName));
+            System.out.printf("%s not found", fileName);
         }
         List<Map<String, String>> elementsList;
         elementsList = mySimpleJsonParser(data);
@@ -27,12 +27,12 @@ public class Task3 {
             result.append(jsonElementToText(element));
             result.append("\n");
         }
-        System.out.println(result.toString());
+        System.out.println(result);
     }
 
     public static String getStringFromFile(String fileName) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
-        String line = null;
+        String line;
         StringBuilder stringBuilder = new StringBuilder();
         String lineSep = System.getProperty("line.separator");
         while ((line = bufferedReader.readLine()) != null){
@@ -47,7 +47,7 @@ public class Task3 {
         Pattern patternElement = Pattern.compile("\\{(\"[А-Яа-я\\w]+\":\"[А-Яа-я\\w]+\",?)+}");
         Pattern patternField = Pattern.compile("\"[А-Яа-я\\w]+\":[А-Яа-я\\w\"]+");
         Matcher matcherElement = patternElement.matcher(jsonStr);
-        Matcher matcherField = null;
+        Matcher matcherField;
         while (matcherElement.find()){
             String element = jsonStr.substring(matcherElement.start(), matcherElement.end());
             matcherField = patternField.matcher(element);

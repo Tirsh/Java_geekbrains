@@ -1,6 +1,6 @@
 package homework2;
 
-import homework1.operations.*;
+import homework2.operations.*;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -27,7 +27,7 @@ public class Task4 {
         while (!scanner.hasNextInt());
         int num2 = scanner.nextInt();
 
-        int action = 1;
+        int action;
         do {
             scanner = new Scanner(System.in);
             System.out.println("Input action: 1. Sum; 2. Difference; 3. Multiplication; 4. Division");
@@ -38,7 +38,7 @@ public class Task4 {
         }
         while (true);
         scanner.close();
-        SimpleCalc simpleCalc = null;
+        SimpleCalc simpleCalc;
         try {
             simpleCalc = new SimpleCalc();
             System.out.printf("Result : %.2f", simpleCalc.calculate(num1, num2, action));
@@ -47,19 +47,14 @@ public class Task4 {
         }
 
     }
-
 }
 class SimpleCalc {
-    private Logger logger;
-    private FileHandler fh;
-
-    private SimpleFormatter sFormat;
-
-    private Map<Integer, Operation> operationMap;
+    private final Logger logger;
+    private final Map<Integer, Operation> operationMap;
     public SimpleCalc() throws IOException {
         logger = Logger.getLogger(SimpleCalc.class.getName());
-        fh = new FileHandler("./src/homework2/calcLog.txt");
-        sFormat = new SimpleFormatter();
+        FileHandler fh = new FileHandler("./src/homework2/calcLog.txt");
+        SimpleFormatter sFormat = new SimpleFormatter();
         logger.addHandler(fh);
         fh.setFormatter(sFormat);
         operationMap = new HashMap<>();
@@ -71,8 +66,6 @@ class SimpleCalc {
     public float calculate(float firstNumber, float secondNumber, int action){
         logger.log(Level.INFO, String.format("Action %d, with .2%f, .2%f", action, firstNumber, secondNumber));
         Operation operation = operationMap.get(action);
-
         return operation.execute(firstNumber, secondNumber);
     }
-
 }
