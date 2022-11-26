@@ -64,8 +64,10 @@ class SimpleCalc {
         operationMap.put(4, new Division());
     }
     public float calculate(float firstNumber, float secondNumber, int action){
-        logger.log(Level.INFO, String.format("Action %d, with .2%f, .2%f", action, firstNumber, secondNumber));
+        logger.log(Level.INFO, String.format("Action %d, with %.2f, %.2f", action, firstNumber, secondNumber));
         Operation operation = operationMap.get(action);
+        float result = operation.execute(firstNumber, secondNumber);
+        logger.log(Level.INFO, String.format("Calculation result %.2f", result));
         return operation.execute(firstNumber, secondNumber);
     }
 }

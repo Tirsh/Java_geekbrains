@@ -1,0 +1,2 @@
+Nov 26, 2022 7:06:07 PM homework2.SimpleCalc calculate
+INFO: Action 4, with 4.00, 8.00
