@@ -1,2 +1,4 @@
-Nov 26, 2022 7:06:07 PM homework2.SimpleCalc calculate
-INFO: Action 4, with 4.00, 8.00
+Nov 26, 2022 7:06:25 PM homework2.SimpleCalc calculate
+INFO: Action 2, with 5.00, 2.00
+Nov 26, 2022 7:06:25 PM homework2.SimpleCalc calculate
+INFO: Calculation result 3.00
