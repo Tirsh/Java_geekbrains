@@ -1,4 +1,8 @@
-Nov 26, 2022 7:06:25 PM homework2.SimpleCalc calculate
-INFO: Action 2, with 5.00, 2.00
-Nov 26, 2022 7:06:25 PM homework2.SimpleCalc calculate
-INFO: Calculation result 3.00
+дек. 03, 2022 8:12:24 PM homework4.SimpleCalc calculate
+INFO: Action 4, with 8,00, 9,00
+дек. 03, 2022 8:12:24 PM homework4.SimpleCalc calculate
+INFO: Calculation result 0,89
+дек. 03, 2022 8:12:42 PM homework4.SimpleCalc calculate
+INFO: Action 4, with 8,00, 2,00
+дек. 03, 2022 8:12:42 PM homework4.SimpleCalc calculate
+INFO: Calculation result 4,00

@@ -1,5 +1,5 @@
 package homework4.operations;
 
 public interface Operation {
-    float execute(float a, float b);
+    double execute(double a, double b);
 }
