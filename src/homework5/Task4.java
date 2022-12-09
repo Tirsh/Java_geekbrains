@@ -28,8 +28,12 @@ class ChessBoard{
         if (board[x][y] != 0x0){
             return false;
         }
-        // put queen and mack board
+        board[x][y] = 'q';
+        markBoard(x, y);
         return true;
+    }
+    private void markBoard(int x, int y){
+
     }
     public boolean checkQueensOnBoard(int number){
         if (numberOfQueens == number) return true;
