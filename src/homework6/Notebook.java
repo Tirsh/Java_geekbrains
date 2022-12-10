@@ -46,7 +46,7 @@ public class Notebook {
     @Override
     public String toString() {
         return "Notebook{" +
-                ", brand='" + brand + '\'' +
+                "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", cpu=" + cpu +
                 "ram=" + ram +
