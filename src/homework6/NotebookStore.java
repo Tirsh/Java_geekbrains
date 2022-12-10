@@ -1,12 +1,18 @@
 package homework6;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import homework6.options.*;
+import java.util.*;
 
 public class NotebookStore {
     Set<Notebook> notebooksOnStock;
+    Map<Integer, Options> optionsMap;
+    {
+        optionsMap = new HashMap<>();
+        optionsMap.put(1, new GetRam());
+        optionsMap.put(2, new GetHddVolume());
+        optionsMap.put(3, new GetOs());
+        optionsMap.put(4, new GetColor());
+    }
 
     public NotebookStore() {
         notebooksOnStock = new HashSet<>();
@@ -18,29 +24,50 @@ public class NotebookStore {
     public void addNotebook(Notebook notebook){
         notebooksOnStock.add(notebook);
     }
-    public Set<Notebook> findByOptions(Notebook protoNote){
+    private Set<Notebook> findByOptions(Notebook protoNote){
+        int ram = protoNote.getRam();
+        int hddVolume = protoNote.getHdVolume();
+        String os = protoNote.getOperationSystem();
+        String color = protoNote.getColor();
+        Set<Notebook> result = new HashSet<>();
+        for (Notebook notebook:notebooksOnStock)
+            if ((ram <= notebook.getRam()) && (hddVolume <= notebook.getHdVolume())
+                    && ((os.equals("___")) || (os.equals(notebook.getOperationSystem())))
+                    && ((color.equals("___")) || (color.equals(notebook.getColor()))))
+                result.add(notebook);
 
-        return notebooksOnStock;
+        return result;
     }
-    private Notebook createRequest(){
+    public Set<Notebook> createRequest(){
         int ram = 0;
         int hdVolume = 0;
-        String os = "";
-        String color = "";
+        String os = "___";
+        String color = "___";
         int option = 0;
         Scanner scanner = new Scanner(System.in);
         while(option != 5) {
-            System.out.println("   “Введите цифру, соответствующую необходимому критерию:  \n" +
+            System.out.println("\n\n\n\n\n\n\n\n\n\n");
+            System.out.printf("   Введите цифру, соответствующую необходимому критерию поиска, или \"5\" - для поиска:  \n" +
                     "   1 - ОЗУ  \n" +
                     "   2 - Объем ЖД  \n" +
                     "   3 - Операционная система  \n" +
                     "   4 - Цвет  \n" +
-                    "   5 - Поиск");
+                    "   5 - Поиск \n" +
+                    "Текущие критерии поиска: ОЗУ(Гб): %d; HDD(Гб): %d; OS: %s; Цвет: %s\n", ram, hdVolume, os, color);
             if (scanner.hasNext())
                 option = scanner.nextInt();
+            if (option == 1)
+                ram = (int)optionsMap.get(option).getOption();
+            else if (option == 2)
+                hdVolume = (int)optionsMap.get(option).getOption();
+            else  if (option == 3)
+                os = (String)optionsMap.get(option).getOption();
+            else if (option == 4)
+                color = (String)optionsMap.get(option).getOption();
+
         }
 
-        return new Notebook("","", null, 0, 0, "", "");
+        return findByOptions(new Notebook("","", null, ram, hdVolume, os, color));
     }
 
     @Override

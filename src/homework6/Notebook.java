@@ -43,15 +43,20 @@ public class Notebook {
         return cpu;
     }
 
+    public String getColor() {
+        return color;
+    }
+
     @Override
     public String toString() {
         return "Notebook{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", cpu=" + cpu +
-                "ram=" + ram +
+                ", ram=" + ram +
                 ", hdVolume=" + hdVolume +
                 ", operationSystem='" + operationSystem + '\'' +
+                ", color='" + color + '\'' +
                 '}';
     }
 }
