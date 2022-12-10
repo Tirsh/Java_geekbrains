@@ -14,10 +14,6 @@ public class NotebookStore {
         optionsMap.put(4, new GetColor());
     }
 
-    public NotebookStore() {
-        notebooksOnStock = new HashSet<>();
-    }
-
     public NotebookStore(Notebook[] notebooks) {
         notebooksOnStock = new HashSet<>(Arrays.asList(notebooks));
     }
@@ -47,13 +43,15 @@ public class NotebookStore {
         Scanner scanner = new Scanner(System.in);
         while(option != 5) {
             System.out.println("\n\n\n\n\n\n\n\n\n\n");
-            System.out.printf("   Введите цифру, соответствующую необходимому критерию поиска, или \"5\" - для поиска:  \n" +
-                    "   1 - ОЗУ  \n" +
-                    "   2 - Объем ЖД  \n" +
-                    "   3 - Операционная система  \n" +
-                    "   4 - Цвет  \n" +
-                    "   5 - Поиск \n" +
-                    "Текущие критерии поиска: ОЗУ(Гб): %d; HDD(Гб): %d; OS: %s; Цвет: %s\n", ram, hdVolume, os, color);
+            System.out.printf("""
+                       Введите цифру, соответствующую необходимому критерию поиска, или "5" - для поиска: \s
+                       1 - ОЗУ \s
+                       2 - Объем ЖД \s
+                       3 - Операционная система \s
+                       4 - Цвет \s
+                       5 - Поиск\s
+                    Текущие критерии поиска: ОЗУ(Гб): %d; HDD(Гб): %d; OS: %s; Цвет: %s
+                    """, ram, hdVolume, os, color);
             if (scanner.hasNext())
                 option = scanner.nextInt();
             if (option == 1)
