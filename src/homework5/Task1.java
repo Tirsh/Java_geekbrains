@@ -12,7 +12,9 @@ public class Task1 {
         phoneBook.addPhone("Alex", "+79817325313");
         phoneBook.addPhone("Bob", "+79212320990");
         phoneBook.addPhone("Ann", "+79030934002");
+        System.out.println("Finding phone number by name:");
         System.out.println(phoneBook.getPhone("Bob"));
+        System.out.println("Showing all phone numbers:");
         phoneBook.showAll();
     }
 }
